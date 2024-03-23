@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">c
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div
+        style="display: flex;border: 4px solid rgb(0, 0, 0);height: 562px;width: 311px; margin-top:100px;  
+         margin-left: 564px; background-color: gray;border-radius:11px; box-shadow: 10px 8px 8px;">
+        <div>
+            <input type="text" id="result" placeholder="0" style="display: flex;margin: 19px 0px -49px 6px;border: 2px solid rgb(255, 255, 255);height: 101px;width: 290px;
+            border-radius: 11px;background-color: rgba(16, 46, 30, 0.386);font-size: 50px; text-align: right; font-size: 40px; color:w;">
+
+            <div style="gap: 20px;">
+                <div style="display: flex;justify-content: center;margin-top: 70px;gap: 11px; height: 70px;">
+                    <button style=" box-shadow: 6px 2px 4px; border-radius:250px; width: 65px; background-color: gray;font-size: 15px;"onclick="cleardisplay()">AC</button>
+                    <button style=" box-shadow: 6px 2px 4px;border-radius:250px; width: 65px; background-color: gray;font-size: 15px;"onclick="del()">DEL</button>
+                    <button style=" box-shadow: 6px 2px 4px; border-radius:250px; width: 65px; background-color: gray;font-size: 20px;"onclick="handleoperation('%')">%</button>
+                    <button style="box-shadow: 6px 2px 4px; border-radius:250px; width: 65px;  background-color: orange;font-size: 20px;"onclick="handleoperation('/')">/</button>
+
+                </div>
+                <div style="display: flex;justify-content: center;margin-top: 10px;gap: 11px; height: 70px; ">
+                    <button  style=" box-shadow: 6px 2px 4px; border-radius:15px; width: 65px;font-size: 20px;"onclick="handleNumber(7)">7</button>
+                    <button   style=" box-shadow: 6px 2px 4px; border-radius:15px; width: 65px;font-size: 20px;"onclick="handleNumber(8)">8</button>
+                    <button style=" box-shadow: 6px 2px 4px; border-radius:15px; width: 65px;font-size: 20px;"onclick="handleNumber(9)">9</button>
+                    <button style="box-shadow: 6px 2px 4px; border-radius: 250px;width:65px;background-color:orange;font-size: 20px;"onclick="handleoperation('*')">*</button>
+
+                </div>
+                <div style="display: flex;justify-content: center;margin-top: 10px;gap: 11px; height: 70px; ">
+                    <button style=" box-shadow: 6px 2px 4px; border-radius:15px;  width: 65px;font-size: 20px;"onclick="handleNumber('4')">4</button>
+                    <button style="box-shadow: 6px 2px 4px; border-radius:15px;  width: 65px;font-size: 20px;"onclick="handleNumber('5')">5</button>
+                    <button  style=" box-shadow: 6px 2px 4px; border-radius:15px;  width: 65px;font-size: 20px;"onclick="handleNumber('6')">6</button>
+                    <button style=" box-shadow: 6px 2px 4px; border-radius:250px;  width: 65px; background-color: orange;font-size: 20px;"onclick="handleoperation('-')">-</button>
+
+                </div>
+                <div style="display: flex;justify-content: center;margin-top: 10px;gap: 11px; height: 70px;">
+                    <button  style=" box-shadow: 6px 2px 4px; border-radius:15px;  width: 65px;font-size: 20px;"onclick="handleNumber('1')">1</button>
+                    <button style=" box-shadow: 6px 2px 4px; border-radius:15px; width: 65px;font-size: 20px;"onclick="handleNumber('2')">2</button>
+                    <button style="box-shadow:6px 2px 4px; border-radius:15px; width:65px;font-size: 20px; "onclick="handleNumber('3')">3</button>
+                    <button style="box-shadow: 6px 2px 4px;border-radius:250px;  width: 65px; background-color: orange;font-size: 20px;"onclick="handleoperation('+')">+</button>
+
+                </div>
+                <div style="display: flex;justify-content: center;margin-top: 10px;gap: 11px;height: 70px;">
+                    <button  style=" box-shadow: 6px 2px 4px; border-radius:15px;width: 65px;font-size: 20px;"onclick="handleNumber('00')">00</button>
+                    <button  style=" box-shadow: 6px 2px 4px; border-radius:15px; width: 65px;font-size: 20px;"onclick="handleNumber('0')">0</button>
+                    <button  style=" box-shadow: 6px 2px 4px; border-radius:15px;width: 65px;font-size: 20px;"onclick="handleNumber('.')">.</button>
+                    <button style=" box-shadow: 6px 2px 4px; border-radius:250px;width: 65px; background-color: orange;font-size: 20px;"onclick=" handleresult(result)">=</button>
+
+                </div>
+            </div>
+
+            <script>
+
+                var data = "";
+                function updateresult(value) {
+                    document.getElementById("result").value = value;
+
+
+                }
+
+
+                function handleNumber(number) {
+                    data = data + number;
+                    console.log(data);
+                    updateresult(data);
+                }
+
+                function handleoperation(operator) {
+                    data = data + operator;
+                    console.log(data);
+                    updateresult(data);
+                }
+
+                function handleresult(result) {
+
+                    var result = eval(data);
+                    updateresult(result);
+                }
+
+                function cleardisplay() {
+                    result.value = " ";
+                    data = "";
+                }
+
+                function del() {
+                    var input = document.getElementById("result");
+                    input.value = input.value.substring(0, input.value.length -1);
+                    data="";
+                }
+
+
+
+            </script>
+</body>
+
+</html>
